@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#07111f" />
+<meta name="description" content="SentinelMind security monitoring dashboard" />
+<title>SentinelMind — Security Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+<div id="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark"><i data-lucide="shield-check"></i></div><div><strong>sentinel<span>mind</span></strong><small>SECURITY OPERATIONS</small></div><button class="mobile-close" id="closeNav" aria-label="Close navigation"><i data-lucide="x"></i></button></div>
+    <div class="workspace"><div class="workspace-dot"></div><div><b>Security workspace</b><small id="connectionLabel">Collector not connected</small></div><i data-lucide="chevrons-up-down"></i></div>
+    <div class="nav-label">MONITOR</div>
+    <nav class="nav">
+      <button class="nav-item active" data-page="overview"><i data-lucide="layout-dashboard"></i><span>Overview</span></button>
+      <button class="nav-item" data-page="events"><i data-lucide="activity"></i><span>Security events</span><span class="nav-count" id="eventCount">0</span></button>
+      <button class="nav-item" data-page="detections"><i data-lucide="scan-search"></i><span>AI detections</span><span class="nav-pill">ML</span></button>
+      <button class="nav-item" data-page="honeypot"><i data-lucide="bug"></i><span>Honeypot</span></button>
+      <button class="nav-item" data-page="intel"><i data-lucide="radar"></i><span>Threat intelligence</span></button>
+      <button class="nav-item" data-page="attackmap"><i data-lucide="globe-2"></i><span>Attack surface</span></button>
+    </nav>
+    <div class="nav-label">MANAGE</div>
+    <nav class="nav">
+      <button class="nav-item" data-page="sensors"><i data-lucide="radio-tower"></i><span>Sensors & sources</span></button>
+      <button class="nav-item" data-page="settings"><i data-lucide="settings-2"></i><span>Settings</span></button>
+    </nav>
+    <div class="sidebar-bottom"><div class="secure-box"><div class="secure-icon"><i data-lucide="lock-keyhole"></i></div><b>Private by design</b><p>Keep sensors on infrastructure you control. Never expose the collector directly to the public internet.</p></div><div class="profile"><div class="avatar">SM</div><div><b>Security analyst</b><small>Local workspace</small></div><i data-lucide="more-horizontal"></i></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button id="menuBtn" class="icon-btn mobile-menu" aria-label="Open navigation"><i data-lucide="menu"></i></button><div class="breadcrumbs"><span>Workspace</span><i data-lucide="chevron-right"></i><b id="crumb">Overview</b></div><div class="top-actions"><div class="live-status"><span class="pulse"></span><span id="liveText">NO LIVE TELEMETRY</span></div><button class="icon-btn" id="refreshBtn" aria-label="Refresh data"><i data-lucide="refresh-cw"></i></button><div class="top-avatar">SM</div></div></header>
+    <section id="content" class="content"></section>
+    <footer><span><span class="footer-dot"></span> SentinelMind <span class="muted">/ Defensive monitoring</span></span><span>V2.0 <span class="footer-sep">·</span> <span id="lastUpdated">Waiting for sensor data</span></span></footer>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script type="module" src="/src/main.js"></script>
+</body></html>
